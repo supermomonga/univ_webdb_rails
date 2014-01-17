@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   # Make docker daemon accesible from host machine
   # CoreOS doesn't allow us to modify systemd config,
   # so we need to run docker directly.
-  config.vm.provision :shell, inline: 'echo "hi"'
+  config.vm.provision :shell, path: 'bootstrap.sh'
   # Also need port forwarding
   config.vm.network :forwarded_port, guest: 4243, host: 4243
 
